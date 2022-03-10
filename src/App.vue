@@ -1,19 +1,16 @@
 <template>
-  <div id="app">
-    <main>
-      <nav>
-        <router-link to="/mainpage"></router-link> 
-      </nav> 
-      <router-view/> 
-    </main>
-    
+  <div id="app" class="max-w-md">  
+    <MainPage />
   </div>
 </template>
 
 <script>
-window.location.href = "http://localhost:8080/#/mainpage";
+import MainPage from './views/MainPage.vue'
+
 export default {
-  
+  components: {
+    MainPage
+  }
 }
 </script>
 

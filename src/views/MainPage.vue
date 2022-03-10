@@ -1,9 +1,9 @@
 <template class="">
-    <main class="container md:max-w-md max-w-sm mx-auto md:max-h-screen max-h-full bg-gray-400">
-        <section class="sticky top-0 max-w-md mx-auto bg-white">
+    <main class="container max-w-full mx-auto md:max-h-screen max-h-full bg-gray-400">
+        <section class="sticky top-0 max-w-full mx-auto bg-white">
             <nav class="text-center text-base font-bold p-2 shadow-md mx-auto">Faktur Gaji</nav>
         </section>
-        <section id="container_header" class="p-4 bg-white max-w-md border-b-2 border-dashed">
+        <section id="container_header" class="p-4 bg-white max-w-full border-b-2 border-dashed">
             <div>
                 <p class="text-lg font-bold">Bani Isrofil</p>
                 <p class="text-sm text-gray-500">10 Feb 2020 - 10 Mar 2020</p>
