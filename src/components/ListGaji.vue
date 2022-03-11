@@ -16,11 +16,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     computed: {
         listGaji(){
             return this.$store.state.listGaji;
-        }
+        },
+        ...mapGetters([
+            'getListGaji'
+        ])
     }
 }
 </script>

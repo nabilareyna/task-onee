@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
       {title: 'Uang Lembur', details: '20.000 x 0 jam', summary: '0'}
   ],
 
-  listUpahborongan: [
+    listUpahborongan: [
     {title: 'Spotting', details: 'Dari 2 layanan', summary: '20.000'}
   ],
 
@@ -28,11 +28,31 @@ export const store = new Vuex.Store({
 ]
   },
   getters: {
+    getListGaji (state) {
+      return state.listGaji
+    },
+
+    getListUpahborongan (state) {
+      return state.listUpahborongan
+    },
+
+    getListKomisi (state) {
+      return state.listKomisi
+    },
+
+    getListTanggungan (state) {
+      return state.listTanggungan
+    }
   },
+
   mutations: {
   },
+
   actions: {
   },
+
   modules: {
   }
 })
+
+

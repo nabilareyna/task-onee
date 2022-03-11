@@ -16,11 +16,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     computed: {
         listUpahborongan(){
             return this.$store.state.listUpahborongan;
-        }
+        },
+
+        ...mapGetters([
+            'getListUpahborongan'
+        ])
     }
 }
 </script>
