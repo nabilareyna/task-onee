@@ -22,11 +22,12 @@ export const store = new Vuex.Store({
         { title: 'Kasbon bayar kos', details: 'Kasbon * Rp 20.000', summary: '20.000' }
   ],
 
-  listKomisi: [
+    listKomisi: [
     {title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', summary: '200.000' },
     {title: 'Komisi Sprei', details: '', summary: '20.000' }
 ]
   },
+  
   getters: {
     getListGaji (state) {
       return state.listGaji

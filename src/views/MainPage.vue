@@ -51,7 +51,7 @@
                         <!-- Property name -->
                         <dt class="text-base font-bold w-1/2 pl-4">Upah Borongan</dt>
                         <!-- Property value -->
-                        <button class="button text-blue-600 font-semibold text-base pr-6" @click="open = true">Lihat Detail</button>
+                        <button class="button text-blue-600 font-semibold text-base pr-6">Lihat Detail</button>
                     <!-- <div v-if="open" class="modal shadow-md rounded">
                         <nav class="w-full p-4 items-center flex bg-white shadow-sm justify-between border-b-2">
                             <div class="">

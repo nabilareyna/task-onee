@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <div class="flex p-2 max-w-md" v-for="(listGaji, index) in listGaji" :key="'listGaji'+index">
+        <div class="flex p-2 max-w-md" v-for="(listGaji, index) in getListGaji" :key="'listGaji'+index">
             <div class="flex-1 w-1/2 pl-2">
                 <p class="text-sm">{{ listGaji.title }}</p>
                 <p class="text-xs text-gray-500">{{ listGaji.details }}</p>
@@ -20,9 +20,6 @@ import { mapGetters } from 'vuex'
 
 export default {
     computed: {
-        listGaji(){
-            return this.$store.state.listGaji;
-        },
         ...mapGetters([
             'getListGaji'
         ])

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="flex p-4 border-b-2 border-dashed max-w-md" v-for="(listUpahborongan, index) in listUpahborongan" :key="'listUpahborongan'+index">
+        <div class="flex p-4 border-b-2 border-dashed max-w-md" v-for="(listUpahborongan, index) in getListUpahborongan" :key="'listUpahborongan'+index">
             <div class="flex-1 w-1/2">
                 <p class="text-sm">{{ listUpahborongan.title }}</p>
                 <p class="text-xs text-gray-500">{{ listUpahborongan.details }}</p>
@@ -20,10 +20,6 @@ import { mapGetters } from 'vuex'
 
 export default {
     computed: {
-        listUpahborongan(){
-            return this.$store.state.listUpahborongan;
-        },
-
         ...mapGetters([
             'getListUpahborongan'
         ])

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainPage from '../views/MainPage.vue'
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,6 +9,15 @@ const routes = [
     name: 'MainPage',
     component: MainPage
   },
+  {
+    path: '/detailKehadiran',
+    name: 'Kehadiran',
+    component: {
+      dialog: () => {
+
+      }
+    }
+  }
 ]
 
 const router = new VueRouter({
