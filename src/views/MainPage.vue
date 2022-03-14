@@ -15,7 +15,10 @@
                     <!-- Property name -->
                     <dt class="text-sm text-gray-400 font-semibold w-1/2 pl-4">Masuk 23 hr, Tdk masuk 4 hr, Terlambat 100 menit</dt>
                     <!-- Property value -->
-                    <button class="button text-blue-600 font-semibold text-sm pr-6" @click="open = true">Lihat Detail</button>
+                    <router-link to="/modalKehadiran">
+                        <button class="button text-blue-600 font-semibold text-sm pr-6">Lihat Detail</button>
+                    </router-link>
+                    <router-view />
                 <!-- <div v-if="open" class="modal shadow-md rounded">
                     <nav class="w-full p-4 items-center flex bg-white shadow-sm justify-between border-b-2">
                         <div class="">

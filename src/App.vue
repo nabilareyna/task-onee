@@ -1,6 +1,9 @@
 <template>
-  <div id="app" class="max-w-md">  
-    <MainPage />
+  <div id="app" class="">
+    <div class="max-w-md">
+      <MainPage />
+      <router-view />
+    </div>  
   </div>
 </template>
 
