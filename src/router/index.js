@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import MainPage from '../views/MainPage.vue'
+import MainPage from '../views/MainPageView.vue'
 import ModalKehadiran from '../components/ModalContent.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/mainpage',
+    path: '/',
     name: 'MainPage',
     component: MainPage
   },
