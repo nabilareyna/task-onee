@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container max-w-md">
         <main-page></main-page>
     </div>
 </template>

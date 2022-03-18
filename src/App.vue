@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="">
-    <div class="max-w-md">
+    <div class="max-w-md flex-auto">
       <router-link to="/"></router-link>
       <router-view />
     </div>  

@@ -8,7 +8,7 @@
             <div class="">
                 <dl class="flex justify-between items-center gap-4 m-2">
                     <dt class="text-sm">{{ listGaji.summary }}</dt>
-                    <img src="../assets/editicon.svg" alt="">
+                    <router-link to="/modalKehadiran"><img src="../assets/editicon.svg" alt=""></router-link>
                 </dl>
             </div>
         </div>
