@@ -8,7 +8,7 @@
             <div class="">
                 <dl class="flex justify-between items-center gap-4 m-2">
                     <dt class="text-sm">{{ listGaji.summary }}</dt>
-                    <router-link to="/modalKehadiran"><img src="../assets/editicon.svg" alt=""></router-link>
+                    <router-link :to="'{{ listGaji.link }}'"><img src="../assets/editicon.svg" alt=""></router-link>
                 </dl>
             </div>
         </div>
@@ -21,7 +21,7 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         ...mapGetters([
-            'getListGaji'
+            'getListGaji',
         ])
     }
 }

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainPage from '../views/MainPageView.vue'
-import ModalKehadiran from '../components/ModalContent.vue'
+import ModalEditGaji from '../components/ModalEditGaji.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,9 +21,19 @@ const routes = [
   // },
 
   {
-    path: '/modalKehadiran',
-    name: 'ModalKehadiran',
-    component: ModalKehadiran
+    path: '/edit/gaji',
+    name: 'ModalEditGaji',
+    component: ModalEditGaji
+  },
+
+  {
+    path: '/edit/uangMakan',
+    name: 'ModalEditUangMakan',
+    component: () => import('../components/ModalEditUangMakan.vue')
+  },
+
+  {
+    path: 'edit/:id'
   }
 
 ]
