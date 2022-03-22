@@ -6,11 +6,11 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     listGaji: [
-      {title: 'Gaji Pokok', details: '800.000 x 1 periode', summary: '800.000', link: '/edit/gaji'},
-      {title: 'Uang Makan', details: '10.000 x 22 kehadiran', summary: '220.000', link: '/edit/uangMakan'},
-      {title: 'Uang Absen', details: '10.000 x 22 kehadiran', summary: '220.000'},
-      {title: 'Uang Transport', details: '10.000 x 22 kehadiran', summary: '220.000'},
-      {title: 'Uang Lembur', details: '20.000 x 0 jam', summary: '0'}
+      {title: 'Gaji Pokok', details: '800.000 x 1 periode', summary: '800.000', link: 'gaji', editing: false},
+      {title: 'Uang Makan', details: '10.000 x 22 kehadiran', summary: '220.000', link: 'uangMakan', editing: false},
+      {title: 'Uang Absen', details: '10.000 x 22 kehadiran', summary: '220.000', link: 'uangAbsen', editing: false},
+      {title: 'Uang Transport', details: '10.000 x 22 kehadiran', summary: '220.000', link: 'uangTransport', editing: false},
+      {title: 'Uang Lembur', details: '20.000 x 0 jam', summary: '0', link: 'uangLembur', editing: false}
   ],
 
     listUpahborongan: [
@@ -29,6 +29,11 @@ export const store = new Vuex.Store({
   },
   
   getters: {
+
+    getResultGaji(state){
+      return state.listGaji.summary
+    },
+
     getListGaji (state) {
       return state.listGaji
     },

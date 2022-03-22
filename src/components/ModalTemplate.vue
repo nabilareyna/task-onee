@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <div id="modal-nav" class="max-w-md z-auto shadow-md rounded">
-            <nav class="max-w-full p-4 mx-auto items-center flex bg-white shadow-sm justify-between">
-                <p class="font-bold text-base text-center pl-36">
+    <div class="max-w-md mx-auto">
+        <div id="modal-nav" class="z-auto mx-auto shadow-md rounded">
+            <nav class="p-2 mx-auto items-center flex bg-white shadow-sm justify-between">
+                <p class="font-bold mx-auto text-base text-center">
                     <slot name="navText" class="">header</slot>
                 </p>
                 <router-link to="/">
@@ -10,7 +10,7 @@
                 </router-link>
             </nav>
         </div>
-        <div id="modal-content" class="">
+        <div id="modal-content" class="mx-auto">
             <slot name="modalContent" class="">content</slot>
         </div>
         <div class="flex justify-center p-4">
