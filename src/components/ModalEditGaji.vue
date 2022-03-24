@@ -7,10 +7,10 @@
                     <p class="text-sm text-gray-500 pb-4">Nominal</p>
                     <div class="flex mx-auto">
                         <p class="bg-gray-300 p-2 w-12 text-center">Rp</p>
-                        <div v-if="!editing" @dblclick="editTodo" class="todo-item-label">{{ summary }}</div>
-                        <input v-else class="todo-item-edit border-2 w-28" type="text" v-model="title" @blur="doneEdit" @keyup.enter="doneEdit" @keyup.esc="cancelEdit" v-focus>
-                        <p class="text-4xl mx-4">&times;</p> 
-                        <input type="text" class="border-2 w-16"> 
+                        <input type="number">
+                        <input class="todo-item-edit border-2 w-28" type="number" v-model="getListGaji[0].nominal">
+                        <p class="text-4xl mx-4">&times;</p>    
+                        <input type="number" class="border-2 w-16" v-model="getListGaji[0].details"> 
                         <p class="bg-gray-300 p-2 w-30 text-center">Periode</p> 
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                         <dt>Jumlah</dt>
 
                         <!-- Property value -->
-                        <dd>Rp 800.000</dd>
+                        <dd>{{ total_Gaji }}</dd>
                     </dl>
                 </div>
             </template>
@@ -30,52 +30,67 @@
 
 <script>
 import modalTemplate from './ModalTemplate'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
+    name: 'edit-gaji',
     data() {
         return {
-            'summary': this.getResultGaji,
-            'editing': this.listGaji.editing
+            'visible': false,
+            'temp': ''
         }
     },
     computed: {
         ...mapGetters([
-            'getResultGaji'
+            'getListGaji',
+            'formatNumber',
+            'nyimpenNumber'
         ]),
-        getResultGaji(){
-            return this.$store.getters.getResultGaji
-        }
-    },  
+        
+        formatGaji() {
+            let gaji = this.$store.getters.getListGaji.summary
+            return this.$store.getters.formatNumber(gaji)
+        },
 
+        total_Gaji() {
+            let totalGaji = this.getListGaji[0].nominal * this.getListGaji[0].periode
+
+            return `Rp ${this.formatNumber(totalGaji)}`
+        }
+    },
     components: {
     'modal-template': modalTemplate,
     },
 
     methods: {
-        editSummary(){
-            this.beforeEditCache = this.$store.state.getResultGaji
-            this.editing = true
+        ...mapActions({
+            editModal_Input: 'editModal_Input'
+        }),
+
+        saveNumber(e){ //handleSimpan
+            let payload = {}
+            switch(e){
+                case "modalGaji":
+                payload = {
+                target : ["listGaji[0].details","listGaji[0].nominal"],
+                value : [this.nyimpenNumber.value.periode, this.nyimpenNumber.value.nominal]
+                }
+                break;
+            }
+            if (payload.target) {
+            this.onSubmitModal(payload)
+            }
         },
 
-        doneEdit() {
-            if (this.title.trim() == '') {
-            this.title = this.beforeEditCache
-        }
-            this.editing = false
-            this.$emit('finishedEdit', {
-                'id': this.id,
-                'title': this.title,
-                'completed': this.completed,
-                'editing': this.editing,
-        })
-        },
-
-        cancelEdit() {
-            this.title = this.beforeEditCache
-            this.editing = false
+        onBlurNumber() {
+        this.visible = true;
+        this.editModal_Input({
+            value: [this.temp],
+            target: ['gaji_pokok'],
+            })
         },
     },
+        
 }
 
 </script>
