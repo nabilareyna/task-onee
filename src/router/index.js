@@ -5,6 +5,7 @@ import ModalEditGaji from '../components/ModalEditGaji.vue'
 import ModalEditUangLembur from '../components/ModalEditUangLembur.vue'
 import ModalEditUangAbsen from '../components/ModalUangAbsen.vue'
 import ModalEditUangTransport from '../components/ModalEditUangTransport.vue'
+import TambahKomisi from '../components/TambahKomisi.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -36,7 +37,7 @@ const routes = [
   },
 
   {
-    path: '/edit/uangLembur           ',
+    path: '/edit/uangLembur',
     name: 'ModalEditUangLembur',
     component: ModalEditUangLembur
   },
@@ -52,6 +53,12 @@ const routes = [
     name: 'ModalEditUangTransport',
     component: ModalEditUangTransport
   },
+
+  {
+    path: '/add/komisi',
+    name: 'TambahKomisi',
+    component: TambahKomisi
+  }
 
 ]
 

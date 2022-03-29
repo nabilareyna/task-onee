@@ -30,40 +30,23 @@
             </dl>
         </div>
         <div class="flex justify-center p-4">
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base py-4 px-36 rounded">Simpan</button>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base py-4 px-36 rounded" @click="updateNominal()">Simpan</button>
         </div>
     </div>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default{
-//     data() {
-//         return {
-//             backLink: "/mainpage",
-//             modalName: "modalKehadiran",
-//             open: true
-//     };
-// },
-//     beforeClick(to, from, next){
-//         next( (vm) => {
-//             vm.setBackLink(from.name);
-//         });
-//     },
-//     beforeLeave(to, from, next){
-//         this.closeModal();
-//         next()
-//     },
-//     methods: {
-//         async back() {
-//             await this.$router.push( { name: this.backLink } );
-//         },
-//         closeModal() {
-//             ('#${this.modalName}').modal("hide");
-//         },
-//         setBackLink(val) {
-//             this.backLink = val;
-//         }
-//     },
+methods: {
+    ...mapActions({
+            updateNumber: 'updateNumber'
+        }),
+
+        updateNominal(){
+            this.updateNumber
+        }
+},
 }
 </script>
 

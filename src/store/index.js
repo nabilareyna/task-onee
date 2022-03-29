@@ -6,11 +6,11 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     listGaji: [
-      {title: 'Gaji Pokok', details: 1, summary: 800000, nominal: 800000, temp: '', link: 'gaji'},
-      {title: 'Uang Makan', details: 22, summary: 220000, nominal: 10000, link: 'uangMakan'},
-      {title: 'Uang Absen', details: 22, summary: 220000, nominal: 10000, link: 'uangAbsen'},
-      {title: 'Uang Transport', details: 22, summary: 220000, nominal: 10000, link: 'uangTransport'},
-      {title: 'Uang Lembur', details: 0, summary: 0, nominal: 20000, link: 'uangLembur'}
+      {id: '1', title: 'Gaji Pokok', details: 1, summary: 800000, nominal: 800000, link: 'gaji'},
+      {id: '2', title: 'Uang Makan', details: 22, summary: 220000, nominal: 10000, link: 'uangMakan'},
+      {id: '3', title: 'Uang Absen', details: 22, summary: 220000, nominal: 10000, link: 'uangAbsen'},
+      {id: '4', title: 'Uang Transport', details: 22, summary: 220000, nominal: 10000, link: 'uangTransport'},
+      {id: '5', title: 'Uang Lembur', details: 0, summary: 0, nominal: 20000, link: 'uangLembur'}
   ],
 
     listUpahborongan: [
@@ -23,11 +23,11 @@ export const store = new Vuex.Store({
   ],
 
     listKomisi: [
-      {title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', summary: '200.000' },
+      {title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', summary: '200.000', link: '' },
       {title: 'Komisi Sprei', details: '', summary: '20.000' }
   ],
 
-
+  activeModal: {}
   },
   
   getters: {
@@ -40,6 +40,10 @@ export const store = new Vuex.Store({
         
         return gaji
       }
+    },
+
+    ACTIVE_MODAL (state) {
+      return state.activeModal
     },
 
     getListGaji (state) {
@@ -61,12 +65,25 @@ export const store = new Vuex.Store({
 
   mutations: {
 
+    SET_ACTIVE_MODAL(state, payload){
+      state.activeModal = payload
+    },
+
     editModalInput : (state) => {
       if(state.listgaji.trim() == ''){
           state.listgaji[0].nominal = this.state.listGaji[0].temp
       }
-    }
+    },
 
+    updateNumber(state, gaji){
+      const index = state.listGaji.findIndex(item => item.id == gaji.id )
+      state.listGaji.splice(index, 1, {
+        'id': gaji.id,
+        'nominal': gaji.nominal,
+        'summary': gaji.summary
+      })
+    }
+  
   },
 
   actions: {

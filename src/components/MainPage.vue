@@ -83,10 +83,12 @@
                 <p class="font-bold text-base">Komisi</p>
             </div>
             <section class="pl-4 pb-2 pt-4">
-                <div class="flex items-center">
-                    <img src="../assets/plusicon.svg" class="">
-                    <p class="text-blue-600 text-sm font-semibold pl-2">Tambah komisi lain...</p>
-                </div>
+                <router-link to="/add/komisi">
+                    <div class="flex items-center">
+                        <img src="../assets/plusicon.svg" class="">
+                        <p class="text-blue-600 text-sm font-semibold pl-2">Tambah komisi lain...</p>
+                    </div>
+                </router-link>
             </section>
             <ListKomisi />
             <section id="subtotal_gaji" class="">
