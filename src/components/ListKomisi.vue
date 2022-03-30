@@ -8,7 +8,7 @@
             <div class="">
                 <dl class="flex justify-between items-center gap-4 m-2">
                     <dt class="text-sm">{{ listKomisi.summary }}</dt>
-                    <img src="../assets/editicon.svg" alt="">
+                    <router-link to="/edit/komisi"><img src="../assets/editicon.svg" alt=""></router-link>
                 </dl>
             </div>
         </div>
@@ -21,7 +21,8 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         ...mapGetters([
-            'getListKomisi'
+            'getListKomisi',
+            'formatNumber'
         ])
     }
 }

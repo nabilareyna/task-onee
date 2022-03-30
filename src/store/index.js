@@ -18,13 +18,13 @@ export const store = new Vuex.Store({
   ],
 
     listTanggungan: [
-      { title: 'Denda Keterlambatan', details: 'Telambat 120 Menit', summary: '200.000' },
-      { title: 'Kasbon bayar kos', details: 'Kasbon * Rp 20.000', summary: '20.000' }
+      {id: '1', title: 'Denda Keterlambatan', details: 'Telambat 120 Menit', summary: '200.000' },
+      {id: '2 ', title: 'Kasbon bayar kos', details: 'Kasbon * Rp 20.000', summary: '20.000' }
   ],
 
     listKomisi: [
-      {title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', summary: '200.000', link: '' },
-      {title: 'Komisi Sprei', details: '', summary: '20.000' }
+      {id: 1, title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', summary: '200.000', link: '' },
+      {id: 2, title: 'Komisi Sprei', details: '', summary: '20.000' }
   ],
 
   activeModal: {}
@@ -82,6 +82,30 @@ export const store = new Vuex.Store({
         'nominal': gaji.nominal,
         'summary': gaji.summary
       })
+    },
+
+    deleteKomisi(state, komisi){
+      const index = state.listKomisi.findIndex(item => item.id == komisi.id)
+      state.listKomisi.splice(index, 1)
+    },
+
+    updateKomisi(state, komisi){
+      const index = state.listKomisi.findIndex( item => item.id == komisi.id )
+      state.listKomisi.splice(index, 1, {
+        'id': komisi.id,
+        'title': komisi.title,
+        'details': komisi.details,
+        'summary': komisi.summary
+      })
+    },
+
+    addKomisi(state, komisi){
+      state.listKomisi.push({
+        'id': komisi.id,
+        'title': komisi.title,
+        'details': komisi.details,
+        'summary': komisi.summary
+      })
     }
   
   },
@@ -94,8 +118,19 @@ export const store = new Vuex.Store({
 
     onSubmitModal : ({ commit }, payload) => {
       commit('MODAL_SUBMIT', payload)
-    }
+    },
+
+    DELETEKOMISI : ({ commit }) => {
+      commit ('deleteKomisi')
+    },
+
+    UPDATEKOMISI : ({ commit }) => {
+      commit ('updateKomisi')
+    },
     
+    ADDKOMISI : ({ commit }) => {
+      commit ('addKomisi')
+    }
   },
 
   modules: {
