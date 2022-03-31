@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link name="dialog" ></router-link>
+        
     </div>
 </template>
 

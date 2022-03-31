@@ -12,16 +12,16 @@
         </div>
         <div class="mx-4 pt-4 p-4">
             <p class="text-sm text-gray-500">Nama Komisi</p>
-            <input type="text" class="border-2 w-3/4 p-2">
+            <input type="text" class="border-2 w-3/4 p-2" placeholder="Nama Komisi" autocomplete="off" v-model="getListKomisi[2].title">
             <p class="text-sm text-gray-500 pt-4">Nominal</p>
             <div class="flex mx-auto">
                 <p class="bg-gray-400 p-2 w-12 text-center">Rp</p>
-                <input type="text" class="border-2 p-2 w-3/4">
+                <input type="number" class="border-2 p-2 w-3/4" v-model="getListKomisi[2].summary">
             </div>
         </div>
         <div class="flex justify-center p-4">
-            <button class="bg-white text-red-700 border-red-700 border-2 font-semibold text-base py-4 px-16 mx-4 rounded" @click="deleteKomisi()">Hapus</button>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base py-4 px-16 rounded">Simpan</button>
+            <button class="bg-white text-red-700 border-red-700 border-2 font-semibold text-base py-4 px-16 mx-4 rounded" @click="deleteKomisi(getListKomisi.id)">Hapus</button>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base py-4 px-16 rounded" @click="updateKomisi()">Simpan</button>
         </div>
     </div>
 </template>
@@ -29,6 +29,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
+    data() {
+        return {
+            'temp': ''
+        }
+    },
     computed: {
         ...mapGetters([
             'getListKomisi',
@@ -38,14 +43,14 @@ export default {
     methods: {
         ...mapActions({
             DELETEKOMISI: 'DELETEKOMISI',
-            UPDATEKOMISI: 'UPDATEKOMISI'
+            UPDATEKOMISI: 'UPDATEKOMISI',
         }),
 
-        deleteKomisi(){
-            this.DELETEKOMISI
+        deleteKomisi(id){
+            this.$store.dispatch('DELETEKOMISI', id)
         },
 
-        addKomisi(){
+        updateKomisi(){
             this.UPDATEKOMISI
         }
 

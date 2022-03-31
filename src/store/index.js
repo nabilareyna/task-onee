@@ -23,8 +23,9 @@ export const store = new Vuex.Store({
   ],
 
     listKomisi: [
-      {id: 1, title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', summary: '200.000', link: '' },
-      {id: 2, title: 'Komisi Sprei', details: '', summary: '20.000' }
+      {id: 1, title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', summary: 200000, link: '' },
+      {id: 2, title: 'Komisi Sprei', details: '', summary: 20000 },
+      {id: 3, title: 'Komisi iya', details: 'test', summary: 20000 }
   ],
 
   activeModal: {}
@@ -61,6 +62,8 @@ export const store = new Vuex.Store({
     getListTanggungan (state) {
       return state.listTanggungan
     },
+
+
   },
 
   mutations: {
@@ -75,6 +78,12 @@ export const store = new Vuex.Store({
       }
     },
 
+    editModalInputKomisi : (state) => {
+      if(state.listKomisi.trim() == ''){
+          state.listKomisi[0].nominal = this.state.listKomisi[0].temp
+      }
+    },
+
     updateNumber(state, gaji){
       const index = state.listGaji.findIndex(item => item.id == gaji.id )
       state.listGaji.splice(index, 1, {
@@ -84,8 +93,8 @@ export const store = new Vuex.Store({
       })
     },
 
-    deleteKomisi(state, komisi){
-      const index = state.listKomisi.findIndex(item => item.id == komisi.id)
+    deleteKomisi(state, id){
+      const index = state.listKomisi.findIndex(item => item.id == id)
       state.listKomisi.splice(index, 1)
     },
 
@@ -106,7 +115,7 @@ export const store = new Vuex.Store({
         'details': komisi.details,
         'summary': komisi.summary
       })
-    }
+    },
   
   },
 
@@ -116,20 +125,28 @@ export const store = new Vuex.Store({
       commit ('editModalInput')
     },
 
-    onSubmitModal : ({ commit }, payload) => {
-      commit('MODAL_SUBMIT', payload)
+    editModalInput_Komisi : ({ commit }) => {
+      commit ('editModalInputKomisi')
     },
 
-    DELETEKOMISI : ({ commit }) => {
-      commit ('deleteKomisi')
+    // onSubmitModal : ({ commit }, payload) => {
+    //   commit('MODAL_SUBMIT', payload)
+    // },
+
+    DELETEKOMISI(context, komisi) {
+      setTimeout(() => {
+        context.commit('deleteKomisi', komisi)
+      }, 100)
     },
 
     UPDATEKOMISI : ({ commit }) => {
       commit ('updateKomisi')
     },
     
-    ADDKOMISI : ({ commit }) => {
-      commit ('addKomisi')
+    ADDKOMISI(context, komisi) {
+      setTimeout(() => {
+        context.commit('addKomisi', komisi)
+      }, 100)
     }
   },
 

@@ -12,11 +12,11 @@
         </div>
         <div class="mx-4 pt-4 p-4">
             <p class="text-sm text-gray-500">Nama Komisi</p>
-            <input type="text" class="border-2 w-3/4 p-2" placeholder="Nama Komisi" autocomplete="off" v-model="newKomisi" >
+            <input type="text" class="border-2 w-3/4 p-2" placeholder="Nama Komisi" autocomplete="off" v-model="newKomisi">
             <p class="text-sm text-gray-500 pt-4">Nominal</p>
             <div class="flex mx-auto">
                 <p class="bg-gray-400 p-2 w-12 text-center">Rp</p>
-                <input type="text" class="border-2 p-2 w-3/4">
+                <input type="number" class="border-2 p-2 w-3/4" v-model="nominalKomisi"> 
             </div>
         </div>
         <div class="flex justify-center p-4">
@@ -32,7 +32,8 @@ export default {
     data() {
         return {
             newKomisi: '',
-            idKomisi: 3
+            idKomisi: 3,
+            nominalKomisi: ''
         }
     },
     computed: {
@@ -56,8 +57,14 @@ export default {
             if (this.newKomisi.trim().length == 0){
                 return
             }
-            this.ADDKOMISI
+            this.$store.dispatch('ADDKOMISI', {
+            id: this.idKomisi,
+            title: this.newKomisi,
+            summary: this.nominalKomisi
+            })
+
             this.newKomisi = ''
+            this.nominalKomisi= ''
             this.idKomisi ++
         }
 
