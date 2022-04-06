@@ -99,7 +99,7 @@ export const store = new Vuex.Store({
     },
 
     updateKomisi(state, komisi){
-      const index = state.listKomisi.findIndex( item => item.id == komisi.id )
+      const index = state.listKomisi.findIndex(item => item.id == komisi.id)
       state.listKomisi.splice(index, 1, {
         'id': komisi.id,
         'title': komisi.title,
@@ -133,10 +133,10 @@ export const store = new Vuex.Store({
     //   commit('MODAL_SUBMIT', payload)
     // },
 
-    DELETEKOMISI(context, komisi) {
-      setTimeout(() => {
-        context.commit('deleteKomisi', komisi)
-      }, 100)
+    DELETEKOMISI : ({ commit }, id) => {
+      
+      // console.log(id);
+      commit ('deleteKomisi', id)
     },
 
     UPDATEKOMISI : ({ commit }) => {

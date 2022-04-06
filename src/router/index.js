@@ -56,7 +56,7 @@ const routes = [
   },
 
   {
-    path: '/edit/komisi',
+    path: '/edit/komisi/:id',
     name: 'UbahKomisi',
     component: UbahKomisi
   },

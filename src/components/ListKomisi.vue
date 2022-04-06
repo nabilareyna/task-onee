@@ -8,7 +8,7 @@
             <div class="">
                 <dl class="flex justify-between items-center gap-4 m-2">
                     <dt class="text-sm">{{ listKomisi.summary }}</dt>
-                    <router-link to="/edit/komisi"><img src="../assets/editicon.svg" alt=""></router-link>
+                    <router-link :to="'/edit/komisi/'+listKomisi.id"><img src="../assets/editicon.svg" alt=""></router-link>
                 </dl>
             </div>
         </div>

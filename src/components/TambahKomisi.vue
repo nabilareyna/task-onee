@@ -32,7 +32,7 @@ export default {
     data() {
         return {
             newKomisi: '',
-            idKomisi: 3,
+            idKomisi: 4,
             nominalKomisi: ''
         }
     },
@@ -49,10 +49,6 @@ export default {
             ADDKOMISI: 'ADDKOMISI'
         }),
 
-        deleteKomisi(){
-            this.DELETEKOMISI
-        },
-
         addKomisi(){
             if (this.newKomisi.trim().length == 0){
                 return
@@ -63,9 +59,9 @@ export default {
             summary: this.nominalKomisi
             })
 
+            this.idKomisi++
             this.newKomisi = ''
             this.nominalKomisi= ''
-            this.idKomisi ++
         }
 
     },
