@@ -154,6 +154,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ListGaji from '../components/ListGaji'
 import ListUpahborongan from '../components/ListUpahborongan'
 import ListKomisi from '../components/ListKomisi'
@@ -165,6 +166,17 @@ export default {
         ListUpahborongan,
         ListKomisi,
         ListTanggungan
+    },
+
+    computed: {
+        ...mapGetters([
+            'getListGaji',
+            'formatNumber'
+        ]),
+
+        // subtotal_gaji() {
+        //     let totalGaji = 
+        // }
     }
 }
 </script>

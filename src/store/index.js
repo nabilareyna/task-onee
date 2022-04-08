@@ -23,9 +23,8 @@ export const store = new Vuex.Store({
   ],
 
     listKomisi: [
-      {id: 1, title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', summary: 200000, link: '' },
-      {id: 2, title: 'Komisi Sprei', details: '', summary: 20000 },
-      {id: 3, title: 'Komisi iya', details: 'test', summary: 20000 }
+      {id: 1, title: 'Sales Keliling', details: 'Penjualan > Rp 3.000.000 + Komisi 0.7%', nominal: 200000 },
+      {id: 2, title: 'Komisi Sprei', details: '', nominal: 20000 },
   ],
 
   activeModal: {}
@@ -113,7 +112,7 @@ export const store = new Vuex.Store({
         'id': komisi.id,
         'title': komisi.title,
         'details': komisi.details,
-        'summary': komisi.summary
+        'nominal': komisi.nominal
       })
     },
   

@@ -7,7 +7,7 @@
             </div>
             <div class="">
                 <dl class="flex justify-between items-center gap-4 m-2">
-                    <dt class="text-sm">{{ listKomisi.summary }}</dt>
+                    <dt class="text-sm">{{ listKomisi.nominal }}</dt>
                     <router-link :to="'/edit/komisi/'+listKomisi.id"><img src="../assets/editicon.svg" alt=""></router-link>
                 </dl>
             </div>
@@ -23,7 +23,11 @@ export default {
         ...mapGetters([
             'getListKomisi',
             'formatNumber'
-        ])
+        ]),
+        formatNominal() {
+            let gaji = this.getListKomisi.nominal
+            return `Rp ${this.formatNumber(gaji)}`
+        },
     }
 }
 </script>
